@@ -1,75 +1,49 @@
-# Nuxt 3 Minimal Starter
+# AliExpress Clone
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+An full stack project made using:
+- Nuxt 3
+- Vue.js
+- Tailwind CSS
+- Supabase
+- Prisma
+  
+You can access the website in production [here](https://aliexpressclonevue.netlify.app/)
 
 ## Setup
 
-Make sure to install the dependencies:
+```bash
+  git clone https://github.com/Gabzmelo/aliexpress-clone-vue.git
+```
+Create the `.env` file like the example and set the Stripe and Supabse connection keys:
 
 ```bash
-# npm
-npm install
+STRIPE_PK_KEY=(PUBLISHABLE KEY)
+STRIPE_SK_KEY=(SECRET KEY)
 
-# pnpm
-pnpm install
+SUPABASE_URL="(PROJECT URL)"
+SUPABASE_KEY="(API KEY)"
 
-# yarn
-yarn install
-
-# bun
-bun install
+DATABASE_URL="(CONNECTION STRING)"
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+After connecting your keys, you'll also need to setup the Auth for Google and GitHub
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+https://supabase.com/docs/guides/auth/social-login/auth-google
+https://supabase.com/docs/guides/auth/social-login/auth-github
 ```
 
-## Production
-
-Build the application for production:
+Once this is done, install the dependencies and start the server:
 
 ```bash
-# npm
-npm run build
+  npm i
 
-# pnpm
-pnpm run build
+  npx prisma generate
 
-# yarn
-yarn build
-
-# bun
-bun run build
+  npm run dev
 ```
 
-Locally preview production build:
+And run the command to migrate your database tables and run your seed file.
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+  npx prisma migrate dev --name init
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
